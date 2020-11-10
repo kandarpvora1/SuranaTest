@@ -71,30 +71,28 @@ public class checkregister {
 		WebElement email = driver.findElement(By.id("bp_email"));
 		email.sendKeys("kandivora95@gmail.com");
 		System.out.println("Email is added.");
-		js.executeScript("window.scrollBy(0,200)");
-		Thread.sleep(6000);
+		js.executeScript("window.scrollBy(0,600)");
+		//Thread.sleep(6000);
 		
-		WebElement dia = driver.findElement(By.cssSelector("align-right secondary slidedown-button"));
-		dia.click();
-		
+		//WebElement dia = driver.findElement(By.id("onesignal-slidedown-cancel-button"));
+		//dia.click();
+		//System.out.println("Notification Closed.");
 	
 	//  Add Agree Button
-		WebElement agree = driver.findElement(By.name("bp_agree"));
-		if (agree.isSelected()) {					
-            System.out.println("Checkbox is Toggled On");					
-
-        } else {			
-            System.out.println("Checkbox is Toggled Off");					
-        }
-		System.out.println("Agree Button is clicked.");
-		agree.click();
-		
+	
+	  WebElement agree = driver.findElement(By.name("bp_agree")); if
+	  (agree.isSelected()) { System.out.println("Checkbox is Toggled On");
+	  
+	  } else { System.out.println("Checkbox is Toggled Off"); }
+	  System.out.println("Agree Button is clicked."); 
+	 
 		
 		
 	//  Add Submit	
 		WebElement Submit = driver.findElement(By.name("ngo_add"));
 		Submit.click();
 		System.out.println("Submit Button is clicked.");
+		System.out.println("Register Test Sucessfully COnducted.");
 		driver.quit();
 	}
 
