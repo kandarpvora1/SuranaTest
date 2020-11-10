@@ -24,15 +24,18 @@ public class excelregister {
 		
 		XSSFSheet sheet1=wb.getSheetAt(0);
 		
-		String data0=sheet1.getRow(0).getCell(0).getStringCellValue();
-		String data1=sheet1.getRow(0).getCell(1).getStringCellValue();
-		String data2=sheet1.getRow(0).getCell(2).getStringCellValue();
-		String data3=sheet1.getRow(0).getCell(3).getStringCellValue();
-		String data4=sheet1.getRow(0).getCell(4).getStringCellValue();
+		for (int i = 0; i <= sheet1.getLastRowNum( ); i++) {
+			
+		
+		String data0=sheet1.getRow(i).getCell(0).getStringCellValue();
+		String data1=sheet1.getRow(i).getCell(1).getStringCellValue();
+		String data2=sheet1.getRow(i).getCell(2).getStringCellValue();
+		String data3=sheet1.getRow(i).getCell(3).getStringCellValue();
+		String data4=sheet1.getRow(i).getCell(4).getStringCellValue();
 		//String data5=sheet1.getRow(0).getCell(5).getStringCellValue();
 		//String data6=sheet1.getRow(0).getCell(6).getStringCellValue();
-		String data7=sheet1.getRow(0).getCell(7).getStringCellValue();
-		String data8=sheet1.getRow(0).getCell(8).getStringCellValue();
+		String data7=sheet1.getRow(i).getCell(7).getStringCellValue();
+		String data8=sheet1.getRow(i).getCell(8).getStringCellValue();
 
 		System.out.println("Starting RegisterTest");
 		System.out.println("Starting Register");
@@ -95,33 +98,30 @@ public class excelregister {
 		WebElement email = driver.findElement(By.id("bp_email"));
 		email.sendKeys(data8);
 		System.out.println("Email is added.");
-		js.executeScript("window.scrollBy(0,200)");
-		Thread.sleep(6000);
+		js.executeScript("window.scrollBy(0,600)");
+	//Thread.sleep(6000);
 		
-		WebElement dia = driver.findElement(By.cssSelector("align-right secondary slidedown-button"));
-		dia.click();
-		
+		//WebElement dia = driver.findElement(By.id("onesignal-slidedown-cancel-button"));
+		//dia.click();
+		//System.out.println("Notification Closed.");
 	
 	//  Add Agree Button
-		WebElement agree = driver.findElement(By.name("bp_agree"));
-		if (agree.isSelected()) {					
-            System.out.println("Checkbox is Toggled On");					
-
-        } else {			
-            System.out.println("Checkbox is Toggled Off");					
-        }
-		System.out.println("Agree Button is clicked.");
-		agree.click();
-		
+	
+	  WebElement agree = driver.findElement(By.name("bp_agree")); if
+	  (agree.isSelected()) { System.out.println("Checkbox is Toggled On");
+	  
+	  } else { System.out.println("Checkbox is Toggled Off"); }
+	  System.out.println("Agree Button is clicked."); 
+	 
 		
 		
 	//  Add Submit	
 		WebElement Submit = driver.findElement(By.name("ngo_add"));
 		Submit.click();
 		System.out.println("Submit Button is clicked.");
-		driver.quit();
-	}
-
+		System.out.println("Register Test Sucessfully COnducted.");
+		driver.quit();	}
+		}
 
 	  private static void sleep(long m) { try { Thread.sleep(m); } catch
 	  (InterruptedException e) { // TODO Auto-generated catch block
